@@ -1,0 +1,45 @@
+﻿<Window x:Class="PrimeCounter.View.ConfigWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrimeCounter.View"
+        xmlns:viewModel="clr-namespace:PrimeCounter.ViewModel"
+        mc:Ignorable="d"
+        Title="Configuration" Height="170.338" Width="300" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" ShowInTaskbar="False">
+    <Window.DataContext>
+        <viewModel:ConfigViewmodel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="39*" />
+            <RowDefinition Height="25*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="25*"  />
+            <ColumnDefinition Width="73*"  />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" 
+                    Grid.Column="1"
+                    Orientation="Vertical">
+            <CheckBox IsChecked="{Binding Fermat}" Margin="5" Content="Fermat Test"/>
+            <StackPanel Margin="5" Orientation="Horizontal"
+                        ToolTip="not yet implemented">
+                <CheckBox IsChecked="{Binding Mrt}" Content="MRT" IsEnabled="False"/>
+                <TextBlock  Margin="15,0,0,0" Foreground="#FFBBBBBB">WIP</TextBlock>
+            </StackPanel>
+            <CheckBox IsChecked="{Binding BruteForce}"  Margin="5" Content="Brute Force"/>
+        </StackPanel>
+        <TextBlock Padding="3" Grid.Column="0" Grid.Row="0" Text="Test Passes:" Foreground="#FF464646" />
+        <Button Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="_OK"
+                Width="100" Height="30"
+                IsDefault="True"
+                Click="OKButton_OnClick"/>
+
+    </Grid>
+</Window>
